@@ -1,0 +1,48 @@
+
+<hr> 
+<!-- Horizontal rule -->
+
+<!-- Create Goal Form -->
+<h2>Create Goal</h2>
+<form (submit)="createGoal()">
+  <label for="name">Name:</label>
+  <input type="text" id="name" [(ngModel)]="goalName" name="name" required> <!-- Input field for goal name -->
+
+  <label for="codingLanguage">Coding Language:</label>
+  <input type="text" id="codingLanguage" [(ngModel)]="goalCodingLanguage" name="codingLanguage" required> <!-- Input field for coding language -->
+
+  <label for="age">Age:</label>
+  <input type="number" id="age" [(ngModel)]="goalAge" name="age" required> <!-- Input field for age -->
+
+  <label for="goal">Goal:</label>
+  <textarea id="goal" [(ngModel)]="goalContent" name="goal" required></textarea> <!-- Textarea for goal content -->
+
+  <button type="submit" [disabled]="addingGoal">Create Goal</button> <!-- Submit button to create the goal -->
+</form>
+
+<div *ngIf = "addingGoal">
+  <p>Adding Goal...</p>
+</div>
+<div *ngIf = "goalAdded">
+  <p>Goal Successfully Added...</p>
+</div>
+<div *ngIf="errorMessage">
+  <p>{{ errorMessage }}</p>
+</div>
+
+<!-- Display Goals -->
+<div *ngIf="goals">
+  <h1>Goal List</h1>
+  <ul>
+    <li *ngFor="let goal of goals">
+      <p>Id: {{ goal.id }}</p> <!-- Display the goal ID -->
+      <p>Name: {{ goal.name }}</p> <!-- Display the goal name -->
+      <p>Goal: {{ goal.goal }}</p> <!-- Display the goal content -->
+      <p>Age: {{ goal.age }}</p> <!-- Display the goal age -->
+      <p>Coding Language: {{ goal.codingLanguage }}</p> <!-- Display the goal coding language -->
+    </li>
+  </ul>
+</div>
+
+<!-- View All Goals Button -->
+<button (click)="onViewAllGoals()">View Goals</button> <!-- Button to trigger the onViewAllGoals() method -->

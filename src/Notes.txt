@@ -1,0 +1,49 @@
+GoalsService.ts Code:
+
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError, map } from 'rxjs/operators';
+import { GoalsModel } from './GoalsModel';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class GoalsService {
+  private apiUrl = 'http://localhost:7295/api'; // Replace with your Spring backend API endpoint
+
+  constructor(private http: HttpClient) { }
+
+  // Method to get all goals from the backend 
+  // Add /goals as the endpoint to get all goals in the backend is api/goals
+  getAllGoals(): Observable<GoalsModel[]> {
+    const url = `${this.apiUrl}/goals`;
+
+    // Send a GET request to the backend API to fetch all goals
+    return this.http.get<GoalsModel[]>(url);
+  }
+
+  // Method to create a new goal
+  createGoal(goal: any): Observable<string> {
+    const url = `${this.apiUrl}/goals`;
+  
+    return this.http.post(url, goal, { observe: 'response' }).pipe(
+      map((response: HttpResponse<any>) => {
+        if (response.status === 201) {
+          return 'Goal created successfully!';
+        } else {
+          return 'Failed to create goal.';
+        }
+      }),
+      catchError((error: HttpErrorResponse) => {
+        return throwError('HTTP Failed to create goal.');
+      })
+    );
+  }
+  
+}
+
+
+
+This is the code to use when the backend response entity simply returns the status
+and does not have a .body

@@ -1,0 +1,25 @@
+/* Styling for the navbar */
+.navbar {
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+  }
+  
+  .site-name {
+    font-size: 24px;
+  }
+  
+  .site-menu a {
+    color: #fff;
+    margin-right: 10px;
+    text-decoration: none;
+  }
+  
+  .site-menu a:hover {
+    text-decoration: underline;
+  }
+  
+
+  
