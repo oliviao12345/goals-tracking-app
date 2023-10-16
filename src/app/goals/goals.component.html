@@ -1,9 +1,7 @@
-
-<hr> 
-<!-- Horizontal rule -->
+<hr> <!-- Horizontal rule -->
 
 <!-- Create Goal Form -->
-<h2>Create Goal</h2>
+<h2 class="create-goal-title">CREATE A NEW GOAL</h2>
 <form (submit)="createGoal()">
   <label for="name">Name:</label>
   <input type="text" id="name" [(ngModel)]="goalName" name="name" required> <!-- Input field for goal name -->
@@ -17,24 +15,37 @@
   <label for="goal">Goal:</label>
   <textarea id="goal" [(ngModel)]="goalContent" name="goal" required></textarea> <!-- Textarea for goal content -->
 
-  <button type="submit" [disabled]="addingGoal">Create Goal</button> <!-- Submit button to create the goal -->
+  <button type="submit" [disabled]="addingGoal">
+    <span *ngIf="addingGoal" class="spinner"></span>
+    <span *ngIf="!addingGoal">Create Goal</span>
+  </button>
 </form>
 
-<div *ngIf = "addingGoal">
+<!-- Display loading spinner -->
+<div class="loading-spinner" *ngIf="addingGoal">
+  <div class="spinner"></div>
   <p>Adding Goal...</p>
 </div>
-<div *ngIf = "goalAdded">
-  <p>Goal Successfully Added...</p>
+
+<!-- Display success message -->
+<div *ngIf="goalAdded && !addingGoal" class="success-message">
+  <p>GOAL SUCCESSFULLY ADDED!</p>
 </div>
-<div *ngIf="errorMessage">
+
+<!-- Display error message -->
+<div *ngIf="errorMessage && !addingGoal" class="error-message">
   <p>{{ errorMessage }}</p>
 </div>
 
+<!-- View All Goals Button -->
+<button class= "button-view-goals" (click)="onViewAllGoals()">View Goals</button> <!-- Button to trigger the onViewAllGoals() method -->
+
+
 <!-- Display Goals -->
 <div *ngIf="goals">
-  <h1>Goal List</h1>
+  <h1 class="goal-list-title">Goal List</h1>
   <ul>
-    <li *ngFor="let goal of goals">
+    <li *ngFor="let goal of goals" class="goal-list-item">
       <p>Id: {{ goal.id }}</p> <!-- Display the goal ID -->
       <p>Name: {{ goal.name }}</p> <!-- Display the goal name -->
       <p>Goal: {{ goal.goal }}</p> <!-- Display the goal content -->
@@ -44,7 +55,5 @@
   </ul>
 </div>
 
-<!-- View All Goals Button -->
-<button (click)="onViewAllGoals()">View Goals</button> <!-- Button to trigger the onViewAllGoals() method -->
 
 <!-- Test PUSH 1 -->
