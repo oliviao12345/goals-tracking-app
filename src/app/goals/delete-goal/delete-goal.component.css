@@ -1,0 +1,109 @@
+form {
+    display: flex; /* Displays the form as a flex container */
+    flex-direction: column; /* Sets the flex direction to column, stacking the child elements vertically */
+    gap: 10px; /* Sets the gap or spacing between the child elements to 10 pixels */
+    max-width: 400px; /* Sets the maximum width of the form container to 400 pixels */
+    margin: 20px auto; /* Centers the form container horizontally with a top margin of 20 pixels */
+    padding: 20px; /* Adds padding of 20 pixels to the content inside the form container */
+    border: 1px solid #ccc; /* Sets a border of 1 pixel width with a color of #ccc */
+    border-radius: 5px; /* Rounds the corners of the form container with a border radius of 5 pixels */
+    background-color: #f5f5f5; /* Sets the background color of the form container to #f5f5f5 */
+  }
+  
+  /* Styles for the heading within the form */
+  form h2 {
+    text-align: center; /* Centers the heading text horizontally */
+    color: #7986cb; /* Sets the color of the heading text to #7986cb */
+  }
+  
+  /* Styles for labels within the form */
+  form label {
+    font-weight: bold; /* Sets the font weight of the labels to bold */
+  }
+  
+  /* Styles for input fields and textarea within the form */
+  form input[type="text"],
+  form input[type="number"],
+  form textarea {
+    padding: 5px; /* Adds padding of 5 pixels to the input fields and textarea */
+    border: 1px solid #ccc; /* Sets a border of 1 pixel width with a color of #ccc for the input fields and textarea */
+    border-radius: 3px; /* Rounds the corners of the input fields and textarea with a border radius of 3 pixels */
+  }
+  
+  /* Styles for buttons within the form */
+  form button {
+    padding: 10px; /* Adds padding of 10 pixels to the buttons */
+    border: none; /* Removes the border of the buttons */
+    border-radius: 5px; /* Rounds the corners of the buttons with a border radius of 5 pixels */
+    background-color: #7986cb; /* Sets the background color of the buttons to #7986cb */
+    color: white; /* Sets the text color of the buttons to white */
+    font-weight: bold; /* Sets the font weight of the buttons to bold */
+    cursor: pointer; /* Changes the cursor to a pointer when hovering over the buttons */
+  }
+  
+  
+  /* Styles for a disabled button within a form */
+  form button[disabled] {
+    background-color: #ccc; /* Sets the background color to a light gray */
+    cursor: not-allowed; /* Changes the cursor to "not-allowed" when hovering over the button */
+  }
+  
+  /* Styles for a spinner element within a button */
+  form button .spinner {
+    display: inline-block; /* Displays the spinner as an inline element */
+    width: 16px; /* Sets the width of the spinner to 16 pixels */
+    height: 16px; /* Sets the height of the spinner to 16 pixels */
+    border: 2px solid #fff; /* Sets the border width and color of the spinner */
+    border-top-color: transparent; /* Makes the top border of the spinner transparent */
+    border-radius: 50%; /* Rounds the spinner to create a circular shape */
+    animation: spin 1s linear infinite; /* Applies a spinning animation to the spinner that lasts for 1 second and repeats indefinitely */
+    margin-right: 5px; /* Adds a right margin of 5 pixels to the spinner */
+  }
+  
+  .update-goal-title {
+    text-align: center; /* Put text in cente */
+  }
+  
+  /* goals.component.css */
+/* Styling for the loading spinner */
+.loading-spinner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #7986cb;
+    border-radius: 50%;
+    animation: spin 1s ease-in-out infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+
+.delete-all-goals-button {
+    padding: 10px; /* Adds padding around the button */
+    border: none; /* Removes the border */
+    border-radius: 5px; /* Rounds the corners of the button */
+    background-color: #f00; /* Sets the background color to red */
+    color: white; /* Sets the text color to white */
+    font-weight: bold; /* Makes the text bold */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    display: flex; /* Turns the element into a flex container */
+    justify-content: center; /* Centers the content horizontally within the flex container */
+    align-items: center; /* Centers the content vertically within the flex container */
+    text-align: center; /* Centers the text horizontally within the element */
+    margin: 0 auto; /* Centers the element horizontally within its parent container */
+  }
+  

@@ -1,0 +1,39 @@
+<h2 class="update-goal-title">UPDATE A GOAL</h2>
+
+<form (ngSubmit)="UpdateGoal()">
+  <label for="id">ID</label>
+  <input type="text" id="id" [(ngModel)]="idToUpdate" name="idToUpdate" required>
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" [(ngModel)]="goalName" name="name" required>
+
+  <label for="codingLanguage">Coding Language:</label>
+  <input type="text" id="codingLanguage" [(ngModel)]="goalCodingLanguage" name="codingLanguage" required>
+
+  <label for="age">Age:</label>
+  <input type="number" id="age" [(ngModel)]="goalAge" name="age" required>
+
+  <label for="goal">Goal:</label>
+  <textarea id="goal" [(ngModel)]="goalContent" name="goal" required></textarea>
+
+  <button type="submit" [disabled]="updatingGoal">
+    <span *ngIf="updatingGoal" class="spinner"></span>
+    <span *ngIf="!updatingGoal">Update Goal</span>
+  </button>
+</form>
+
+<!-- Display loading spinner -->
+<div class="loading-spinner" *ngIf="updatingGoal">
+  <div class="spinner"></div>
+  <p>Updating Goal...</p>
+</div>
+
+<!-- Display success message -->
+<div *ngIf="goalUpdated && !updatingGoal" class="success-message">
+  <p>GOAL SUCCESSFULLY Updated!</p>
+</div>
+
+<!-- Display error message -->
+<div *ngIf="MessageUpdateGoal && !updatingGoal" class="error-message">
+  <p>{{ MessageUpdateGoal }}</p>
+</div>

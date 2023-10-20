@@ -1,0 +1,33 @@
+<div class="refresh-container">
+  <button class="refresh-button" (click)="onViewAllGoals()" [disabled]="showSpinner">
+    <span *ngIf="!showSpinner">Refresh Goals</span>
+    <span *ngIf="showSpinner">Refreshing Goals</span>
+  </button>
+  <div class="loading-spinner" *ngIf="showSpinner">
+    <div class="spinner"></div>
+  </div>
+</div>
+<span *ngIf="successMessage" class="success-message">{{ successMessage }}</span>
+<span *ngIf="errorMessage">{{ errorMessage }}</span>
+<div *ngIf="goalRefreshed && !refreshingGoal">GOAL SUCCESSFULLY REFRESHED!</div>
+
+
+
+
+<div *ngIf="goals" class="goal-list-container">
+  <h1 class="goal-list-title">Goal List</h1>
+  <ul>
+    <li *ngFor="let goal of goals" class="goal-list-item">
+      <p class="goal-property">Id: {{ goal.id }}</p> <!-- Display the goal ID -->
+      <p class="goal-property">Name: {{ goal.name }}</p> <!-- Display the goal name -->
+      <p class="goal-property">Goal: {{ goal.goal }}</p> <!-- Display the goal content -->
+      <p class="goal-property">Age: {{ goal.age }}</p> <!-- Display the goal age -->
+      <p class="goal-property">Coding Language: {{ goal.codingLanguage }}</p> <!-- Display the goal coding language -->
+    </li>
+  </ul>
+</div>
+
+<!-- If No Goals in database, Print the below text -->
+<div *ngIf="!goals" class="no-goals-message-container">
+  <p class="no-goals-message">NO GOALS IN DATABASE. PLEASE ADD SOME GOALS AND TRY AGAIN!</p>
+</div>

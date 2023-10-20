@@ -10,8 +10,12 @@ import { CoursesComponent } from './courses/courses.component';
 import { PricingComponent } from './pricing/pricing.component';
 import { GoalsComponent } from './goals/goals.component';
 import { FormsModule } from '@angular/forms';
-import { GoalsService } from 'src/GoalsService';
+import { GoalsService } from 'src/app/goals/GoalsService';
 import { HttpClientModule } from '@angular/common/http';
+import { UpdateGoalComponent } from './goals/update-goal/update-goal.component';
+import { CreateGoalComponent } from './goals/create-goal/create-goal.component';
+import { ViewGoalComponent } from './goals/view-goal/view-goal.component';
+import { DeleteGoalComponent } from './goals/delete-goal/delete-goal.component';
 
 @NgModule({
   declarations: [
@@ -21,16 +25,14 @@ import { HttpClientModule } from '@angular/common/http';
     AboutComponent,
     CoursesComponent,
     PricingComponent,
-    GoalsComponent
+    GoalsComponent,
+    UpdateGoalComponent,
+    CreateGoalComponent,
+    ViewGoalComponent,
+    DeleteGoalComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule
-  ],
-  providers: [GoalsService
-  ],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [GoalsService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

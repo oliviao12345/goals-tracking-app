@@ -1,0 +1,37 @@
+<!-------------- Display Delete Goal by ID Form -------------------->
+<form (submit)="DeleteGoal()">
+    <h2 style="color: black;">DELETE A GOAL BY ID</h2>
+    <label for="id">ENTER THE ID:</label> <!-- Label for the input field -->
+    <input type="text" id="id" [(ngModel)]="idToDelete" name="idToDelete" required> <!-- Input field to enter the ID, with two-way data binding using ngModel -->
+    <button class="delete-goals-button" (click)="DeleteGoal()">Delete Goal</button> <!-- Button to trigger the DeleteGoal() method when clicked -->
+  
+    <!-- Display loading spinner -->
+    <div class="loading-spinner" *ngIf="deletingGoal">
+      <div class="spinner"></div>
+      <p>Deleting Goal...</p>
+    </div>
+  
+    <div *ngIf="GoalDeleted && !deletingGoal">GOAL SUCCESSFULLY DELETED!</div> <!-- Show success message if deletedGoal is true -->
+  
+    <div *ngIf="errorMessageDelete">{{ errorMessageDelete }}</div> <!-- Show error message if it is not empty -->
+  </form>
+  
+  <!------------------ DELETE ALL GOALS BUTTON ----------------------------->
+  <button class="delete-all-goals-button" (click)="confirmDeleteAllGoals()">DELETE ALL GOALS</button>
+  
+  <div *ngIf="showConfirmationModal">
+    <h3>Confirm</h3>
+    <p>Are you sure you want to delete all goals? This action cannot be undone.</p>
+    <button (click)="deleteAllGoals()">Yes</button>
+    <button (click)="cancelDeleteAllGoals()">No</button>
+  </div>
+  
+  <div *ngIf="allGoalsDeleted || cancelDeleteAllGoals">
+    <p>{{ confirmMessageDeleteAll }}</p>
+  </div>
+  
+  <div *ngIf="errorMessageDeleteAll">
+    <p>{{ errorMessageDeleteAll }}</p>
+  </div>
+  
+  

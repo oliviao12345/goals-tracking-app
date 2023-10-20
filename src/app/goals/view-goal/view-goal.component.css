@@ -1,0 +1,122 @@
+.refresh-button {
+    background-color: #007bff; /* Set the background color */
+    color: #fff; /* Set the text color */
+    border: none; /* Remove the button border */
+    padding: 10px 20px; /* Set the padding */
+    font-size: 16px; /* Set the font size */
+    border-radius: 5px; /* Add rounded corners */
+    cursor: pointer; /* Show a pointer cursor on hover */
+  }
+  
+  .goal-list-container {
+    margin-top: 20px; /* Add some top margin */
+  }
+  
+  .goal-list-title {
+    font-size: 24px; /* Increase the font size */
+    margin-bottom: 10px; /* Add some bottom margin */
+  }
+  
+  .goal-list-item {
+    list-style-type: none; /* Remove the bullet points */
+    background-color: #f5f5f5; /* Set a background color */
+    padding: 10px; /* Add some padding */
+    margin-bottom: 10px; /* Add some bottom margin */
+    border-radius: 5px; /* Add rounded corners */
+    transition: transform 0.3s; /* Add transition for smooth effect */
+  }
+  
+  .goal-list-item:hover {
+    transform: translateY(-2px); /* Apply a translation on hover */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a box shadow on hover */
+  }
+  
+  .goal-property {
+    margin: 5px 0; /* Add some vertical margin */
+  }
+  
+  .no-goals-message-container {
+    margin-top: 20px; /* Add some top margin */
+  }
+  
+  .no-goals-message {
+    font-size: 18px; /* Increase the font size */
+    font-weight: bold; /* Make the text bold */
+    color: #ff0000; /* Set the text color to red */
+  }
+  
+
+  .refresh-button {
+    display: block;
+    position: relative;
+    margin: 20px auto 0;
+    background-color: green;
+    /* Add any other styling you want for the button */
+  }
+  
+  .refresh-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+  }
+  
+  .loading-spinner {
+    position: absolute;
+    top: calc(100% + 10px); /* Place the spinner below the button */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-top-color: #333;
+    border-radius: 50%;
+    animation: spinner-rotate 1s linear infinite;
+  }
+  
+  @keyframes spinner-rotate {
+    0% {
+      transform: translateX(-50%) rotate(0deg);
+    }
+    100% {
+      transform: translateX(-50%) rotate(360deg);
+    }
+  }
+  
+
+/* Apply the styling to the success message */
+div.success-message {
+background-color: green;
+color: white;
+padding: 10px;
+animation: successAnimation 0.5s ease-in-out;
+}
+
+/* Apply the styling to the error message */
+div.error-message {
+background-color: red;
+color: white;
+padding: 10px;
+animation: errorAnimation 0.5s ease-in-out;
+}
+
+.success-message, .error-message {
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 18px;
+font-weight: bold;
+color: white;
+padding: 10px;
+margin: 10px;
+border-radius: 5px;
+}
+
+.success-message {
+background-color: green;
+}
+
+.error-message {
+background-color: red;
+}
