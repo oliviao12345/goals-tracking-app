@@ -32,7 +32,7 @@ To start the Java Spring backend and connect to MongoDB, follow these steps:
 
 3. Build the project using Maven by running: `mvn clean install`
 
-4. Start the backend server by running: `java -jar target/backend2-0.0.1-SNAPSHOT.jar --server.port=7295`
+4. Start the backend server by running: `java -jar target/backend2-0.0.1-SNAPSHOT.jar`
 
 5. The backend server will be running on `http://localhost:7295`.
 
